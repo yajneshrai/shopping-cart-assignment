@@ -1,39 +1,118 @@
+@import './common.scss';
+
 .header__header-bar {
+    box-shadow: 0px 3px 5px 0px $ab-lt-grey;
+
+    a {
+        text-decoration: none;
+        font-weight: $font-semi-bold;
+    }
+
     .header__container {
-        display: flex;
-        padding: 1% 10%;
-        box-shadow: 0px 2px 10px 0px #BDBDBD;
+        @include flex;
+        @include centered-page;
+        
+        @include breakpoint('tablet') {
+            @include no-margin-page;
+        } 
 
         .header__icon {
             flex-basis: 20%;
 
             img {
-                width: 50%;
+                width: 75%;
+                padding: 4%;
+
+                @include breakpoint('tablet') {
+                    width: 80%;
+                    padding: 4% 0;
+                } 
+
+                @include breakpoint('mobile') {
+                    width: 125%;
+                } 
             }
         }
 
-        .header__navigation {
+        nav.header__navigation {
             flex-basis: 60%;
-            display: flex;
-            align-items: center;
+            margin: 4% 0 0 4%;
 
-            a {
-                padding: 0 5%;
+            li a {
+                padding: 0 3%;
+                color: $ab-dk-grey;
             }
+
+            @include breakpoint('mobile') {
+                visibility: hidden;
+            } 
         }
 
         .header__user-action {
             flex-basis: 20%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            justify-content: center;
+            position: relative;
 
-            .header__cart-icon {
-                img {
-                    width: 25px;
+            nav ul {
+                @include flex-jc-flex-end;
+                
+                li {
+                    margin: 2%;
+                    
+                    a {
+                        color: $ab-black;
+                        font-size: $font-11;
+                    }
+                }
+
+                @include breakpoint('mobile') {
+                    display: none;
+                } 
+            }
+
+            .header__cart {
+
+                button {
+                    @include flex-center;
+                    color: $ab-black;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    padding: 5% 10%;
+                    background: $ab-lt-grey;
+                    font-weight: $font-semi-bold;
+                    cursor: pointer;
+
+                    #cart-icon {
+                        width: 28px;
+                        height: 28px;
+                        fill: $ab-pink;
+                    }
+
+                    span {
+                        margin-left: 10%;
+                        white-space: nowrap;
+                        font-size: $font-12;
+                    }
+
+                    @include breakpoint('mobile') {
+                        top: 0;
+                    } 
                 }
             }
+        }
+    }
+}
+
+nav {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        @include flex;
+
+        li {
+            display: inline-block;
+            margin-left: 5%;
         }
     }
 }

@@ -1,0 +1,75 @@
+/** Break points **/
+
+$breakpoints: (
+    'mobile': 767px,
+    'tablet': 992px,
+    'laptop': 1200px,
+) !default;
+
+/* $breakpoints: (
+    'xs': 480px,
+    'sm': 769px
+    'md': 1024px,
+    'lg': 1200px,
+) !default; */
+
+@mixin breakpoint($bp) {
+    @media (max-width: map-get($breakpoints, $bp)) {
+        @content;
+    }
+}
+
+/** Colors **/
+/** Prefix: ab : apna bazar **/
+
+$ab-pink: #d00255;
+$ab-black: #2a2a2a;
+$ab-dk-grey: grey;
+$ab-lt-grey: #eeeeee;
+$ab-aqua: #51bbbe;
+
+/** Fonts **/
+$font-11: 11px;
+$font-12: 12px;
+$font-13: 13px;
+
+$font-regular: 400;
+$font-semi-bold: 600;
+$font-bold: 700;
+
+@mixin centered-page {
+    margin: 0 15%;
+}
+
+@mixin no-margin-page {
+    margin: unset
+}
+
+@mixin flex {
+    display: flex;
+}
+
+@mixin flex-column {
+    @include flex;
+    flex-direction: column
+}
+
+@mixin flex-center {
+    @include flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-jc-flex-end {
+    @include flex;
+    justify-content: flex-end;
+}
+
+
+button {
+    padding: 3%;
+    color: white;
+    background-color: $ab-pink;
+    border: 1px $ab-pink;
+    font-family: inherit;
+}

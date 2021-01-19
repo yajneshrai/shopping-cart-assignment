@@ -7,7 +7,7 @@ const HandlebarsWebpackPlugin = require('handlebars-webpack-plugin');
 module.exports = {
 
     entry: [
-        './src/js/index.js',
+        './src/js/main.js',
         './src/style/main.scss'
     ],
 
@@ -23,17 +23,30 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        '@babel/preset-env',
+                        {
+                            plugins: [
+                                '@babel/plugin-proposal-class-properties'
+                            ]
+                        }
+                    ]
+                }
             },
             {
                 test: /\.html$/,
                 use: 'html-loader'
             },
             {
+                test: /\.hbs$/,
+                use: 'handlebars-loader'
+            },
+            {
                 test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    /* 'style-loader', */
                     'css-loader',
                     'sass-loader'
                 ]
@@ -52,31 +65,28 @@ module.exports = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-                { from: 'static/images', to: 'images/' }
+                { from: 'static/images', to: 'static/images/' }
             ]
         }),
+        new HtmlWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: 'src/view/index.html',
-            filename: 'index.html',
+            template: 'src/view/index.hbs',
+            filename: 'index.html'
         }),
         new HtmlWebpackPlugin({
-            template: 'src/view/home.html',
-            filename: 'home.html',
-        }),
-        new HtmlWebpackPlugin({
-            template: 'src/view/product-listing.html',
+            template: 'src/view/product-listing.hbs',
             filename: 'product-listing.html',
         }),
         new HtmlWebpackPlugin({
-            template: 'src/view/signin.html',
+            template: 'src/view/signin.hbs',
             filename: 'signin.html',
         }),
         new HtmlWebpackPlugin({
-            template: 'src/view/register.html',
+            template: 'src/view/register.hbs',
             filename: 'register.html',
         }),
         new HtmlWebpackPlugin({
-            template: 'src/view/cart.html',
+            template: 'src/view/cart.hbs',
             filename: 'cart.html',
         })
     ]
