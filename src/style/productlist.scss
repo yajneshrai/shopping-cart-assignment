@@ -1,0 +1,25 @@
+@import './common.scss';
+
+aside#category-sidebar {
+    width: 20%;
+    background-color: $ab-lt-grey;
+    float: left;
+
+    nav ul li {
+        padding: 6%;
+        border-bottom: 1px solid $ab-dk-grey;
+    }
+
+    @include breakpoint('tablet') {
+        width: 25%;
+    }
+}
+
+section#product-list-container {
+    width: 80%;
+    float: right;
+
+    @include breakpoint('tablet') {
+        width: 75%;
+    }
+}

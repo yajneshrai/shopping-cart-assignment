@@ -12,10 +12,12 @@ class Banner {
     }
 
     loadBanners() {
-        this.request.makeCall(data => {
+        this.request.invoke()
+        .then(data => {
             this.banners = data;
             RenderTemplateData('banner__container', HomePageTemplate, this.banners);
-        });
+        })
+        .catch( err => console.log(err) );
     }
 }
 

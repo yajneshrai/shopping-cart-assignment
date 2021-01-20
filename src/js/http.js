@@ -12,18 +12,30 @@ export class HttpRequest {
         this.data = JSON.stringify(data);
     }
 
-    makeCall(callback) {
-        this.request = new XMLHttpRequest();
+    invoke() {
+        
+        return new Promise((resolve, reject) => {
+            this.request = new XMLHttpRequest();
 
-        this.request.open(this.method, `${this.apiUrl}/${this.api}`);
+            this.request.open(this.method, `${this.apiUrl}/${this.api}`);
     
-        this.request.send(this.data);
+            this.request.send(this.data);
 
-        return this.request.onreadystatechange = () => {
-            if(this.request.readyState == 4 && this.request.status == 200) {
-                callback(JSON.parse(this.request.response))
+            this.request.onreadystatechange = () => {
+                if(this.request.readyState == 4) {
+                    if(this.request.status == 200)
+                        resolve(JSON.parse(this.request.responseText));
+                    else
+                        reject(this.request.statusText);
+
+                }
             }
-        }
+
+            this.request.onerror = () => {
+                reject(this.request.statusText);
+            }
+        });
+        
     }
 }
 

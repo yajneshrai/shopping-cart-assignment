@@ -12,7 +12,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "canned": "^0.3.12"
+    "canned": "^0.3.12",
+    "handlebars": "^4.7.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

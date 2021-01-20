@@ -1,15 +1,16 @@
-<aside id="product-category-sidebar">
+<aside id="category-sidebar">
     <nav>
-        <ul class="flex-column">
+        <ul id="sidebar-list" class="flex-column">
+            {{#each .}}
             <li>
-                a
+                {{name}}
             </li>
+             {{/each}}
         </ul>
     </nav>
 </aside>
+<section id="product-list-container">
+    {{> _product }}
+</section>
 
-<script>
-    const productCategories = [
-        ''
-    ]
-</script>
+{{!-- <script type="text/javascript" src="../../js/productlist.js"></script> --}}

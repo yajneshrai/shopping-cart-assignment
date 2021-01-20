@@ -1,4 +1,6 @@
 import HttpRequest from './http';
+import RenderTemplateData from './render';
+import ProductListTemplate from '../view/partials/_product_categories.hbs';
 
 class Product {
     
@@ -41,5 +43,39 @@ class Category {
         this.imageUrl = imageUrl;
         this.id = id;
     }
-
 }
+
+class ProductListPage {
+    categories = [];
+    products = [];
+
+    constructor() {
+        this.fetchCategories();  
+        this.fetchProducts();
+    }
+
+    fetchCategories() {
+        const request = new HttpRequest('GET', 'categories', null);
+
+        request.invoke()
+        .then(data => {
+            this.categories = data;
+            console.log(this.categories)
+            //RenderTemplateData('sidebar-list', ProductListTemplate, this.categories);
+        }).catch( err => {
+            console.error(err);
+        });
+    }
+
+    fetchProducts() {
+        const request = new HttpRequest('GET', 'products', null);
+
+        request.invoke().then(
+            data => this.products = data
+        ).catch( err =>
+            console.error(err)
+        );
+    }
+}
+
+const pl = new ProductListPage();

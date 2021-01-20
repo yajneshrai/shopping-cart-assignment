@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -14,6 +15,9 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
+        environment: {
+            arrowFunction: false
+        }
     },
 
     mode: 'development',
@@ -62,6 +66,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css'
+        }),
+        new webpack.SourceMapDevToolPlugin({
+            filename: '[file].map'
         }),
         new CopyWebpackPlugin({
             patterns: [
