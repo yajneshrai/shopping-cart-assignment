@@ -1,1 +1,37 @@
-hey
+<!-- <section class="home__section">
+
+</section> -->
+<ng-container *ngFor="let category of categories">
+    <section *ngIf="category.enabled">
+        <div class="row home__category">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center home__category--image">
+                <img [src]="category.imageUrl | imgSrc" [alt]="category.name">
+            </div>
+    
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center home__category--details">
+                <h3 class="home__category--details-name">
+                    {{category.name}}
+                </h3>
+                <p class="home__category--details-desc ">
+                    {{category.description}}
+                </p>
+                <button class="home__category--details-explore" [routerLink]="['/product-list', category.key]">
+                    Explore {{category.key}}
+                </button>
+            </div>
+        </div>
+    </section>
+</ng-container>
+
+
+<!-- 
+      {
+    "name": "Beverages",
+    "key": "beverages",
+    "description": "Our beverage department will ensure your fridge is always fully stocked. Shop for soda, juice, beer and more. ",
+    "enabled": true,
+    "order": 3,
+    "imageUrl": "/static/images/category/beverages.png",
+    "id": "5b675e5e5936635728f9fc30"
+  },
+ -->

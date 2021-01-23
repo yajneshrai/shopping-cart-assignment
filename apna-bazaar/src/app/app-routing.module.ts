@@ -12,7 +12,16 @@ const routes: Routes = [
   },
   {
     path: 'product-list', 
-    component: ProductListComponent
+    children: [
+      {
+        path: '',
+        component: ProductListComponent
+      },
+      {
+        path: ':productKey',
+        component: ProductListComponent
+      },
+    ]
   },
   {
     path: 'sign-in', 

@@ -13,6 +13,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImgSrcPipe } from './pipes/img-src.pipe';
+import { BannerComponent } from './components/banner/banner.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 /* import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
  */
 
@@ -27,7 +29,9 @@ import { ImgSrcPipe } from './pipes/img-src.pipe';
     ProductListComponent,
     SignInComponent,
     SignUpComponent,
-    ImgSrcPipe
+    ImgSrcPipe,
+    BannerComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

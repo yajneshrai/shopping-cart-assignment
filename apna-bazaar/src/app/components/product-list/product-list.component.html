@@ -1,10 +1,10 @@
 <section class="productlist__container">
-    <div class="productlist__sidenav">
-        <app-category-sidenav 
-            [categories]="categories" 
-            (categorySelected)="categorySelected($event)">
+
+    <div class="productlist__sidenav" *ngIf="categories.length">
+        <app-category-sidenav [categories]="categories">
         </app-category-sidenav>
     </div>
+
     <div class="productlist__products">
         <div class="row">
             <ng-container *ngIf="displayedProducts.length; else noDataBlock">
@@ -17,6 +17,7 @@
             </ng-container>
         </div>
     </div>
+    
 </section>
 
 <ng-template #noDataBlock>

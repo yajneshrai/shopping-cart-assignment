@@ -30,9 +30,13 @@ nav {
 }
 
 button {
-    padding: 5px;
+    padding: 6px 12px;
     color: white;
     background-color: $ab-pink;
     border: 1px $ab-pink;
     white-space: nowrap;
+}
+
+img {
+    width: 100%;
 }
