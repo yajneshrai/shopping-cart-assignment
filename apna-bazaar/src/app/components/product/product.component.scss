@@ -1,0 +1,100 @@
+@import '../../../styles/constants.scss';
+@import '../../../styles/layout.scss';
+
+.product {
+    padding: 5px;
+    border-bottom: 1.25px dashed $ab-md-grey;
+    margin: 8px;
+
+    &__name {
+        height: 60px;
+        font-size: $font-14;
+        font-weight: $font-bold;
+
+        @include media-breakpoint-down(md) {
+            height: 40px;
+        }
+    }
+
+    figure {
+        
+        @include media-breakpoint-down(md) {
+            display: flex;
+        }
+
+        img {
+            width: 100%;
+
+            @include media-breakpoint-down(md) {
+                width: 50%;
+            }
+        }
+
+        figcaption {
+            padding: 6px;
+            background: $ab-lt-grey;
+            margin-top: 10px;
+
+            @include media-breakpoint-down(md) {
+                height: 135px;
+            }
+
+            div {
+                height: 66px;
+                font-size: $font-11;
+                overflow: auto;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                @include media-breakpoint-down(md) {
+                    height: 100%;
+                }
+            }
+            
+        }
+    }
+
+    &__buy {
+        margin-bottom: 5px;
+        
+        &--price {
+            font-weight: $font-semi-bold;
+
+            @include media-breakpoint-between(sm,md) {
+                display: none !important;
+            }
+        }
+
+        &--now {
+            margin-left: auto;
+            width: 75px;
+
+            @include media-breakpoint-only(md) {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            &-lg {
+                @include media-breakpoint-up(lg) {
+                    display: block !important;
+                }
+            }
+
+            &-md {
+                @include media-breakpoint-only(md) {
+                    display: block !important;
+                }
+            }
+
+            &-sm {
+                @include media-breakpoint-only(sm) {
+                    display: block !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+@import '../../../styles/constants.scss';
+@import '../../../styles/layout.scss';
+
+.productlist__container {
+    @include flex;
+
+    .productlist__sidenav {
+        flex: 0 1 20%;
+        background-color: $ab-lt-grey;
+
+        @include media-breakpoint-down(md) {
+            flex: 0 1 25%;
+        }
+
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
+    }
+
+    .productlist__products {
+        flex: 1;
+
+        .row {
+            margin: 0 !important;
+        }
+    }
+}
+
+[class^="col-"] {
+    padding: 0;
+}
+
+.no-data {
+    width: 100%;
+    font-size: $font-13;
+    font-weight: $font-semi-bold;
+    margin: 10px;
+}

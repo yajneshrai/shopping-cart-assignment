@@ -1,0 +1,24 @@
+@import '../../../styles/constants.scss';
+
+.sidenav {
+    background-color: $ab-lt-grey;
+
+    nav {
+        ul li {
+            padding: 3% 10%;
+            border-bottom: 1px solid $ab-md-grey;
+            font-weight: $font-semi-bold;
+            color: $ab-dk-grey;
+            cursor: pointer;
+        }
+    }
+    
+
+    /* @include breakpoint('tablet') {
+        width: 25%;
+    } */
+}
+
+.selected {
+    background-color: $ab-lt-grey-2;
+}

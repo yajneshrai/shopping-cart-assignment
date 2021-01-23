@@ -1,0 +1,11 @@
+<aside class="sidenav">
+    <nav>
+        <ul class="sidenav__list" class="flex-column">    
+            <li *ngFor="let category of categories" 
+                [ngClass]="{'selected': isCategorySelected && selectedCategory == category.id}"
+                (click)="selectCategory(category.id)">
+                <a>{{category.name}}</a>
+            </li>
+        </ul>
+    </nav>
+</aside>

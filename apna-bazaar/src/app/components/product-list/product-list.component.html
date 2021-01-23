@@ -1,0 +1,24 @@
+<section class="productlist__container">
+    <div class="productlist__sidenav">
+        <app-category-sidenav 
+            [categories]="categories" 
+            (categorySelected)="categorySelected($event)">
+        </app-category-sidenav>
+    </div>
+    <div class="productlist__products">
+        <div class="row">
+            <ng-container *ngIf="displayedProducts.length; else noDataBlock">
+                <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let product of displayedProducts">
+                    <app-product 
+                        [product]="product" 
+                        (productAdded)="addToCart($event)">
+                    </app-product>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>
+
+<ng-template #noDataBlock>
+    <p class="no-data text-center">Oops! No macthing products found!</p>
+</ng-template>

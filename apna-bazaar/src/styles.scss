@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,600,700');
+@import './styles/constants.scss';
+@import './styles/layout.scss';
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $font-family !important;
+    font-weight: $font-regular;
+    font-size: $font-12 !important;
+    background-color: $ab-white;
+    /* position: relative; */
+}
+
+* {
+    outline: none;
+}
+
+nav {
+    ul {
+        @include flex;
+        list-style: none;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        li {
+            display: inline;
+        }
+    }
+}
+
+button {
+    padding: 5px;
+    color: white;
+    background-color: $ab-pink;
+    border: 1px $ab-pink;
+    white-space: nowrap;
+}

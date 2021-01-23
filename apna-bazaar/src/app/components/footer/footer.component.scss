@@ -1,0 +1,18 @@
+@import '../../../styles/constants.scss';
+
+footer {
+    background-color: $ab-lt-grey;
+    //position: absolute;
+    width: 100%;
+    bottom: 0;
+    
+    div {
+        p {
+            /* text-align: center;
+            margin: 5px; */
+            font-weight: $font-semi-bold;
+            padding: 1.25%;
+            margin: 0;
+        } 
+    }
+}

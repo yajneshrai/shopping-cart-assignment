@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:server": "canned -p 5000 ./server",
+    "server": "canned -p 5000 ./server",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -20,7 +20,11 @@
     "@angular/platform-browser": "~11.0.9",
     "@angular/platform-browser-dynamic": "~11.0.9",
     "@angular/router": "~11.0.9",
+    "@ng-bootstrap/ng-bootstrap": "^2.0.0-alpha.0",
+    "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
+    "bootstrap": "^4.6.0",
     "canned": "^0.3.12",
+    "jquery": "^3.5.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
