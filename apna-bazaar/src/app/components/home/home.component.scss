@@ -2,11 +2,11 @@
 @import '../../../styles/layout.scss';
 
 section {
-    .home__category {
+    .category {
         padding: 30px 20px;
         box-shadow: 0 8px 7px -5px $ab-md-grey;
 
-        &--image {
+        .category-image {
             @include flex-center;
             @include flex-column;
 
@@ -23,16 +23,16 @@ section {
             }
         }
 
-        &--details {
+        .category-details {
             @include flex-center;
             @include flex-column;
 
-            &-name {
+            .category-name {
                 font-size: $font-14;
                 font-weight: $font-bold;
             }
 
-            &-desc {
+            .category-desc {
                 font-size: $font-12;
             }
 
@@ -43,21 +43,21 @@ section {
     }
 
     &:nth-child(odd) {
-        .home__category--image {
+        .category-image {
             order: 1 !important;
         }
 
-        .home__category--details {
+        .category-details {
             order: 2 !important;
         }
     }
 
     &:nth-child(even) {
-        .home__category--image {
+        .category-image {
             order: 2 !important;
         }
 
-        .home__category--details {
+        .category-details {
             order: 1 !important;
         }
     }

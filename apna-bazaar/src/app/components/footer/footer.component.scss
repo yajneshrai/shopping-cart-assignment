@@ -1,18 +1,23 @@
 @import '../../../styles/constants.scss';
+@import '../../../styles/layout.scss';
+
+:host {
+    margin-top: auto;
+}
 
 footer {
     background-color: $ab-lt-grey;
-    //position: absolute;
     width: 100%;
-    bottom: 0;
-    
-    div {
-        p {
-            /* text-align: center;
-            margin: 5px; */
-            font-weight: $font-semi-bold;
-            padding: 1.25%;
-            margin: 0;
-        } 
-    }
+
+    p {
+        font-weight: $font-semi-bold;
+        padding: 12px 0 !important;
+        margin: 0 auto;
+
+        @include media-breakpoint-down(md) {
+            padding: 5px 0 !important;
+            text-align: center;
+        }
+    } 
+
 }

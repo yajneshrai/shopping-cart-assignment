@@ -20,7 +20,11 @@ export class HeaderComponent implements OnInit {
     )
   }
 
+
   ngOnInit(): void {
   }
 
+  showCart() {
+    this.cartService.cartContainerOpened(true);
+  }
 }

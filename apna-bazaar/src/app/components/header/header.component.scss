@@ -20,10 +20,10 @@ header {
     top: 0;
     z-index: 1;
 
-    .header {
+    div.container {
         @include flex;
     
-        &__logo {
+        .logo {
             flex: 0 1 20%;
             
             img {
@@ -41,7 +41,7 @@ header {
             }
         }
     
-        &__navigation {
+        nav.navigation {
             flex: 1;
             margin: 3.5% 0 0 2%;
 
@@ -62,7 +62,7 @@ header {
 
         }
     
-        &__actions {
+        .actions {
             flex: 0 1 20%;
             position: relative;
 
@@ -102,7 +102,7 @@ header {
                 cursor: pointer;
                 border: unset;
 
-                span {
+                #cart-count {
                     margin-left: 10%;
                     white-space: nowrap;
                     font-size: $font-12;

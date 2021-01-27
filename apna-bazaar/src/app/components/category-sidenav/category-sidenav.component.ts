@@ -28,6 +28,12 @@ export class CategorySidenavComponent implements OnInit {
     });
   }
 
+  categoryChanged(event: any) {
+    const categoryId = event.target.value;
+    const key = this.categories.find(category => category.id == categoryId)?.key || '';
+    this.selectCategory(categoryId, key);
+  }
+
   selectCategory(categoryId: string, key: string) {    
     // Check if current and previously selected categories are unique
     this.isCategorySelected = categoryId != this.selectedCategory ? true : false

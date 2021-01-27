@@ -1,0 +1,13 @@
+@import '../styles/layout.scss';
+
+main {
+    position: relative;
+    @include flex-column;
+    @include flex-1;
+}
+
+:host {
+    @include flex-column;
+    @include flex-1;
+    min-height: 100vh;
+}

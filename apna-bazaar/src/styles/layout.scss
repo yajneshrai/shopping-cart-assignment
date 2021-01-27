@@ -26,13 +26,22 @@ Inbuilt breakpoint mixins of Bootstrap
     display: flex;
 }
 
+@mixin flex-1 {
+    @include flex;
+    flex: 1;
+}
+
 @mixin flex-column {
-    display: flex;
+    @include flex;
     flex-direction: column;
 }
 
 @mixin flex-center {
-    display: flex;
+    @include flex;
     align-items: center;
     justify-content: center;
+}
+
+.flex-1 {
+    @include flex-1;
 }

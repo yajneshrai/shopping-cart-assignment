@@ -1,20 +1,22 @@
-<section class="product flex-column">
-    <h2 class="product__name">{{product.name}}</h2>
+<section class="flex-column">
+    <h2>{{product.name}}</h2>
 
-    <figure class="product__figure">
+    <figure>
         <img [src]="product.imageURL | imgSrc" [alt]="product.name">
 
         <figcaption>
-            <div class="product__figure--desc"> {{product.description}} </div>
+            <p> {{product.description}} </p>
         </figcaption>
     </figure>
 
-    <div class="product__buy d-flex align-items-center">
-        <div class="product__buy--price"> MRP Rs.{{product.price}} </div>
-        <button class="product__buy--now" (click)="addToCart()">
-            <span class="d-none product__buy--now-lg">Buy Now </span>
-            <span class="d-none product__buy--now-md">Buy Now @ MRP Rs.{{product.price}}</span>
-            <span class="d-none product__buy--now-sm">Buy Now @ Rs.{{product.price}}</span>
+    <div class="product-buy d-flex align-items-center">
+        <div class="product-price"> MRP Rs.{{product.price}} </div>
+        <button class="product-buy-now" 
+            (click)="addToCart()" 
+            [attr.aria-label]="'Buy now ' + product.name + ' @ Rs.' + product.price">
+            <span class="d-none buy-now-text-lg">Buy Now </span>
+            <span class="d-none buy-now-text-md">Buy Now @ MRP Rs.{{product.price}}</span>
+            <span class="d-none buy-now-text-sm">Buy Now @ Rs.{{product.price}}</span>
         </button>
     </div>
 </section>

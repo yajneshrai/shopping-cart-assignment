@@ -1,19 +1,20 @@
 <section class="productlist__container">
 
-    <div class="productlist__sidenav" *ngIf="categories.length">
-        <app-category-sidenav [categories]="categories">
-        </app-category-sidenav>
-    </div>
+    <app-category-sidenav 
+        class="productlist__sidenav"
+        *ngIf="categories.length"
+        [categories]="categories">
+    </app-category-sidenav>
 
     <div class="productlist__products">
         <div class="row">
             <ng-container *ngIf="displayedProducts.length; else noDataBlock">
-                <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let product of displayedProducts">
-                    <app-product 
-                        [product]="product" 
-                        (productAdded)="addToCart($event)">
-                    </app-product>
-                </div>
+                <app-product 
+                    class="col-lg-3 col-md-6 col-sm-12" 
+                    *ngFor="let product of displayedProducts"
+                    [product]="product" 
+                    (productAdded)="addToCart($event)">
+                </app-product>
             </ng-container>
         </div>
     </div>

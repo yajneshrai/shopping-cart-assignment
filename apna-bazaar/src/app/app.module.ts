@@ -14,7 +14,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImgSrcPipe } from './pipes/img-src.pipe';
 import { BannerComponent } from './components/banner/banner.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CountUpdateButtonComponent } from './components/count-update-button/count-update-button.component';
 /* import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
  */
 
@@ -31,7 +32,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     SignUpComponent,
     ImgSrcPipe,
     BannerComponent,
-    CarouselComponent
+    CartComponent,
+    CountUpdateButtonComponent
   ],
   imports: [
     BrowserModule,

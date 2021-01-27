@@ -1,18 +1,24 @@
 @import '../../../styles/constants.scss';
 @import '../../../styles/layout.scss';
 
-.product {
+section {
     padding: 5px;
     border-bottom: 1.25px dashed $ab-md-grey;
     margin: 8px;
-
-    &__name {
+    position: relative;
+    
+    h2 {
         height: 60px;
         font-size: $font-14;
         font-weight: $font-bold;
 
         @include media-breakpoint-down(md) {
             height: 40px;
+        }
+
+        @include media-breakpoint-down(sm) {
+            height: auto;
+            margin-bottom: 15px;
         }
     }
 
@@ -27,6 +33,7 @@
 
             @include media-breakpoint-down(md) {
                 width: 50%;
+                padding-right: 15px;
             }
         }
 
@@ -39,9 +46,16 @@
                 height: 135px;
             }
 
-            div {
+            @include media-breakpoint-down(sm) {
+                height: 15vh;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            
+            p {
                 height: 66px;
                 font-size: $font-11;
+                margin-bottom: 0;
                 overflow: auto;
                 scrollbar-width: none;
                 -ms-overflow-style: none;
@@ -58,18 +72,18 @@
         }
     }
 
-    &__buy {
+    .product-buy {
         margin-bottom: 5px;
         
-        &--price {
+        .product-price {
             font-weight: $font-semi-bold;
 
-            @include media-breakpoint-between(sm,md) {
+            @include media-breakpoint-between(xs,md) {
                 display: none !important;
             }
         }
 
-        &--now {
+        button {
             margin-left: auto;
             width: 75px;
 
@@ -78,20 +92,28 @@
                 width: 100%;
             }
 
-            &-lg {
+            @include media-breakpoint-down(sm) {
+                position: absolute;
+                right: 2%;
+                bottom: 10%;
+                width: 48%;
+                display: block !important;
+            }
+
+            .buy-now-text-lg {
                 @include media-breakpoint-up(lg) {
                     display: block !important;
                 }
             }
 
-            &-md {
+            .buy-now-text-md {
                 @include media-breakpoint-only(md) {
                     display: block !important;
                 }
             }
 
-            &-sm {
-                @include media-breakpoint-only(sm) {
+            .buy-now-text-sm {
+                @include media-breakpoint-down(sm) {
                     display: block !important;
                 }
             }

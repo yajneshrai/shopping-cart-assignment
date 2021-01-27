@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarouselComponent } from './carousel.component';
+import { CountUpdateButtonComponent } from './count-update-button.component';
 
-describe('CarouselComponent', () => {
-  let component: CarouselComponent;
-  let fixture: ComponentFixture<CarouselComponent>;
+describe('CountUpdateButtonComponent', () => {
+  let component: CountUpdateButtonComponent;
+  let fixture: ComponentFixture<CountUpdateButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CarouselComponent ]
+      declarations: [ CountUpdateButtonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CarouselComponent);
+    fixture = TestBed.createComponent(CountUpdateButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

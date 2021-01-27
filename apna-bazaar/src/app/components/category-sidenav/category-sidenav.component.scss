@@ -1,6 +1,7 @@
 @import '../../../styles/constants.scss';
+@import '../../../styles/layout.scss';
 
-.sidenav {
+aside {
     background-color: $ab-lt-grey;
 
     nav {
@@ -11,14 +12,36 @@
             color: $ab-dk-grey;
             cursor: pointer;
         }
+
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
     }
     
+    select {
+        background-color: $ab-pink;
+        color: $ab-white;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        display: none;
+        
+        @include media-breakpoint-down(sm) {
+            display: block;
+            margin-top: 10px;
+        }
 
-    /* @include breakpoint('tablet') {
-        width: 25%;
-    } */
+        option {
+            background-color: white;
+            color: $ab-black;
+
+            .active {
+                background-color: $ab-lt-grey-2;
+            }
+        }
+    }
 }
 
-.selected {
+.active {
     background-color: $ab-lt-grey-2;
 }

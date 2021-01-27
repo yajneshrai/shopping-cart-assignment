@@ -1,0 +1,77 @@
+<ng-container *ngIf="isCartOpened$ | async">
+    <div class="overlay"></div>
+
+    <section class="cart-container" [ngClass]="{'cart-bg': cart.totalProducts}">
+        <div class="cart-body">
+
+            <div class="cart-header" [ngClass]="{'cart-not-empty': cart.totalProducts }">
+                <h5>My Cart</h5>
+                <span>
+                    ({{ cart.totalProducts }} {{ cart.totalProducts == 1 ? 'item' : 'items' }})
+                </span>
+                <button rel="close" aria-label="Close cart" (click)="hideCart(false)">&#10006;</button>
+            </div>
+    
+            <div class="cart-items-wrapper flex-column" *ngIf="cart">
+
+                <ng-container *ngIf="cart.totalProducts; else emptyCart">
+
+                    <div *ngFor="let id of cart.productIds" class="d-flex cart-item">
+
+                        <img [src]="cart.productMap[id].product.imageURL | imgSrc" 
+                            [alt]="cart.productMap[id].product.name">
+
+                        <div class="flex-column item-details">
+                            <h5>{{cart.productMap[id].product.name}}</h5>
+
+                            <div class="d-flex">
+                                <app-count-update-button 
+                                    [count]="cart.productMap[id].count"
+                                    (add)="addItem(cart.productMap[id].product)"
+                                    (remove)="removeItem(id)">
+                                </app-count-update-button>
+                                <div class="item-qty-multiply">
+                                    <span aria-label="mutiply">&#10006;</span>
+                                    <span>Rs.{{cart.productMap[id].product.price}}</span> 
+                                </div>
+                                <div class="item-price">
+                                    Rs.{{cart.productMap[id].product.price * cart.productMap[id].count}} 
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex cheaper">
+                        <img src="/assets/images/lowest-price.png" alt="Lowest Price" />
+                        <p>You wont find it cheaper anywhere</p>
+                    </div>
+
+                </ng-container>
+            </div>
+
+            <div class="cart-actions">
+                <p *ngIf="cart.totalProducts">Promo code can be applied on payment page</p>
+                <button *ngIf="cart.totalProducts"
+                    class="d-flex justify-content-between"
+                    (click)="hideCart(true)">
+                    <span>Proceed to checkout</span>
+                    <span>Rs. {{ cart.totalCost }}
+                        <span class="angle-icon"> &#8250; </span>
+                    </span>
+                </button>
+
+                <button *ngIf="!cart.totalProducts" (click)="hideCart(false)">Start Shopping</button>
+            </div>
+        </div>
+    </section>
+
+</ng-container>
+
+
+<ng-template #emptyCart>
+    <section class="d-flex flex-column">
+        <h5>No items in your cart</h5>
+        <p>Your favourite items are just a click away</p>
+    </section>
+</ng-template>

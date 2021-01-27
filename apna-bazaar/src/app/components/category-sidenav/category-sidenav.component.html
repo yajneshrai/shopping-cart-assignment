@@ -1,13 +1,23 @@
-<aside class="sidenav">
+<aside>
     <nav>
-        <ul class="sidenav__list" class="flex-column">    
+        <ul class="flex-column">    
             <ng-container *ngFor="let category of categories">
                 <li *ngIf="category.enabled"
-                    [ngClass]="{'selected': isCategorySelected && selectedCategory == category.id}"
+                    [ngClass]="{'active': isCategorySelected && selectedCategory == category.id}"
                     (click)="selectCategory(category.id, category.key)">
                     <a>{{category.name}}</a>
-            </li>
+                </li>
             </ng-container>
         </ul>
     </nav>
+
+    <select (change)="categoryChanged($event)">
+        <ng-container *ngFor="let category of categories">
+            <option *ngIf="category.enabled" 
+                [value]="category.id">
+                {{category.name}}
+            </option>
+        </ng-container>
+        
+    </select>
 </aside>

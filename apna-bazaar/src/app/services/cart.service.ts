@@ -8,8 +8,11 @@ import { Product } from '../models/product.model';
 })
 export class CartService {
 
-  cart: Cart = initialCart;
+  cart: Cart = { ...initialCart };
   cartItem: BehaviorSubject<Cart> = new BehaviorSubject<Cart>(this.cart);
+
+  isCartOpened: boolean = false;
+  cartOpened: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.isCartOpened);
 
   constructor() {
     this.notifyCartUpdate();
@@ -17,6 +20,18 @@ export class CartService {
 
   cartSubscription() {
     return this.cartItem.asObservable();
+  }
+
+  cartContainerSubscription() {
+    return this.cartOpened.asObservable();
+  }
+
+  cartContainerOpened(isOpened: boolean) {
+    this.isCartOpened = isOpened;
+    const body = document.getElementsByTagName('body')[0];
+    body.style.overflow = this.isCartOpened ? 'hidden' : 'auto';
+    //body.tabIndex = -1;
+    this.cartOpened.next(this.isCartOpened);
   }
 
   addToCart(product: Product) {
@@ -38,22 +53,38 @@ export class CartService {
     }
 
     this.cart.totalProducts++;
+    this.updateCartCost();
     this.notifyCartUpdate();
   }
 
-  removeFromCart() {
+  removeFromCart(productId: string) {
+    this.cart.productMap[productId].count--;
+    this.cart.totalProducts--;
 
+    if(this.cart.productMap[productId].count == 0) {
+      const idx = this.cart.productIds.indexOf(productId);
+      this.cart.productIds.splice(idx, 1);
+
+      delete this.cart.productMap[productId];
+    } 
+
+    this.updateCartCost();
+    this.notifyCartUpdate();
   }
 
-  updateCartCost() {
-/*     Object.keys(this.cart.productMap).forEach(
-      (total, key) => {
-
-      }
-    ) */
+  private updateCartCost() {
+    this.cart.totalCost = 0;
+    for(let productId of this.cart.productIds) {
+      this.cart.totalCost += this.cart.productMap[productId].product.price * this.cart.productMap[productId].count;
+    }
   }
 
-  notifyCartUpdate() {
+  private notifyCartUpdate() {
     this.cartItem.next(this.cart);
+  }
+
+  clearCart() {
+    this.cart = { ...initialCart };
+    this.notifyCartUpdate();
   }
 }
