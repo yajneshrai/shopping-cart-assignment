@@ -1,1 +1,41 @@
-<p>sign-up works!</p>
+<div class="signup-container">
+    <section id="text-banner">
+        <h1>Signup</h1>
+        <br>
+        <p>We do not share your personal details with anyone</p>
+    </section>
+
+    <section id="form-container">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+            <div class="form-floating mb-4">
+                <input type="text" id="firstName" formControlName="firstName" class="form-control" required>
+                <label for="firstName" aria-labelledby="firstName">first Name</label>
+            </div>
+
+            <div class="form-floating mb-4">
+                <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
+                <label for="lastName" aria-labelledby="lastName">Last Name</label>
+            </div>
+
+            <div class="form-floating mb-4">
+                <input type="email" id="email" formControlName="email" class="form-control" required>
+                <label for="email" aria-labelledby="email">Email</label>
+            </div>
+
+            <div class="form-floating mb-4">
+                <input type="password" id="password" formControlName="password" class="form-control" required>
+                <label for="password" aria-labelledby="password">Password</label>
+            </div>
+            
+            <div class="form-floating mb-4">
+                <input type="password" id="password2" formControlName="password2" class="form-control" required>
+                <label for="password2" aria-labelledby="password2">Confirm Password</label>
+                <span class="form-control-error" *ngIf="signupForm.controls.password2.dirty && signupForm.value.password!=signupForm.value.password2">Passwords does not match</span>
+            </div>
+
+            <br>
+
+            <button type="submit" [disabled]="signupForm.invalid">Signup</button>
+        </form>
+    </section>
+</div>

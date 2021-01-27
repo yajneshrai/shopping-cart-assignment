@@ -1,0 +1,28 @@
+@import '../../../styles/constants.scss';
+@import '../../../styles/layout.scss';
+
+.signup-container {
+    @include flex;
+    margin: 3% 6%;
+
+    #text-banner {
+        @include flex-column;
+        flex-basis: 45%;
+        margin-top: 5%;
+
+        h1 {
+            font-size: 25px;
+            margin: 0;
+            font-weight: $font-bold;
+        }
+    }
+
+    #form-container {
+        flex-basis: 35%;
+        margin-top: 3%;
+        
+        form {
+            @include flex-column; 
+        }
+    }
+}

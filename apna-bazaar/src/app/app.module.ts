@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,6 @@ import { ImgSrcPipe } from './pipes/img-src.pipe';
 import { BannerComponent } from './components/banner/banner.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CountUpdateButtonComponent } from './components/count-update-button/count-update-button.component';
-import { SwipeModule } from 'ng-swipe';
 /* import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
  */
 
@@ -38,8 +38,10 @@ import { SwipeModule } from 'ng-swipe';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
     //SwipeModule
     //NgbModule.forRoot()
   ],

@@ -35,6 +35,11 @@ button {
     background-color: $ab-pink;
     border: 1px $ab-pink;
     white-space: nowrap;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
 
 img {

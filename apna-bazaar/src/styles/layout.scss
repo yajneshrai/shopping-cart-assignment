@@ -1,4 +1,5 @@
 @import "~/node_modules/bootstrap/scss/bootstrap.scss";
+@import './constants.scss';
 
 /* 
 Inbuilt breakpoint mixins of Bootstrap
@@ -45,3 +46,47 @@ Inbuilt breakpoint mixins of Bootstrap
 .flex-1 {
     @include flex-1;
 }
+
+
+/** Form Styles **/
+
+.form-floating {
+    @include flex-column;
+
+    input {
+        padding: 0;
+        height: 25px;
+        border: 0 !important;
+        border-bottom: 1px solid $ab-md-grey !important;
+        border-radius: 0;
+        outline: 0 !important;
+        box-shadow: unset;
+        order: 2;
+        transition: border-bottom 0.1s;
+    }
+    
+    label {
+        margin: 0;
+        font-size: $font-11;
+        order: 1;
+        color: $ab-dk-grey;
+        transition: color 0.1s;
+    }
+    
+    .form-control-error {
+        order: 3;
+        color: $ab-pink;
+        font-size: $font-11;
+    }
+
+    input:focus + label {
+        color: $ab-aqua;
+    }
+    
+    input:focus {
+        border-bottom: 2px solid $ab-aqua !important;
+    }
+}
+
+
+

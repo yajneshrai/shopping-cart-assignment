@@ -1,7 +1,7 @@
 @import '../../../styles/constants.scss';
 @import '../../../styles/layout.scss';
 
-.action-container {
+.signin-container {
     @include flex;
     margin: 3% 6%;
 
@@ -23,70 +23,9 @@
         
         form {
             @include flex-column; 
-
-            .form-group {
-                margin-bottom: 3%;
-                position: relative;
-            }
-
-            /* input {
-                width: 100%;
-                border: none;
-                border-bottom: 1px solid $ab-dk-grey;
-                background-color: transparent;
-                padding: 15px 0px 0px 0px;
-                height: 35px;
-                outline: none !important;
-                color: $ab-black;
-                background: linear-gradient(to top,  $ab-aqua 50%,  $ab-aqua 50%);
-                background-position: left bottom;
-                background-size: 0 1px;
-                background-repeat: no-repeat;
-                transition: all .2s ease-in-out;
-                font-size: $font-12;
-                font-weight: $font-semi-bold;
-                font-family: inherit;
-
-                &:hover, &:focus {
-                    border-color: $ab-aqua; 
-                }
-
-                &:focus{
-                    background-position: left bottom;
-                    background-size: 100% 1px;
-                    border: none;
-                }
-                
-                &:valid + label,
-                &:focus + label {
-                    height: 20px; 
-                    line-height: 20px; 
-                    font-size: $font-11;
-                    color: $ab-aqua;
-                }
-              }
-              
-              label {
-                position: absolute;
-                top: 0; 
-                left: 0;
-                line-height: 45px;
-                background: transparent;
-                color: $ab-dk-grey;
-                margin: 0px auto;
-                cursor: text;
-                pointer-events: none;
-                transition: all .15s ease-in-out;
-                font-size: $font-12;
-              }
- */
         }
     }
 }
 
 
-              
-              /* input:focus ::-webkit-input-placeholder { color: transparent; font-size: 0; }
-              input:focus :-moz-placeholder { color: transparent; font-size: 0; }
-              input:focus ::-moz-placeholder { color: transparent; font-size: 0; }
-              input:focus :-ms-input-placeholder { color: transparent; font-size: 0; } */
+
