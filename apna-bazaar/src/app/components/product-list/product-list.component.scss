@@ -2,7 +2,6 @@
 @import '../../../styles/layout.scss';
 
 :host {
-    @include flex;
     @include flex-1;
 }
 

@@ -1,7 +1,7 @@
 <ng-container *ngIf="isCartOpened$ | async">
     <div class="overlay"></div>
 
-    <section class="cart-container" [ngClass]="{'cart-bg': cart.totalProducts}">
+    <section class="cart-container" [ngClass]="{'cart-bg': cart.totalProducts}" aria-modal="true">
         <div class="cart-body">
 
             <div class="cart-header" [ngClass]="{'cart-not-empty': cart.totalProducts }">
@@ -9,7 +9,7 @@
                 <span>
                     ({{ cart.totalProducts }} {{ cart.totalProducts == 1 ? 'item' : 'items' }})
                 </span>
-                <button rel="close" aria-label="Close cart" (click)="hideCart(false)">&#10006;</button>
+                <button rel="close" aria-label="Close" (click)="hideCart(false)">&#10006;</button>
             </div>
     
             <div class="cart-items-wrapper flex-column" *ngIf="cart">

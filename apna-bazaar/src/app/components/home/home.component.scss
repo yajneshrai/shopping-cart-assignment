@@ -5,13 +5,14 @@ section {
     .category {
         padding: 30px 20px;
         box-shadow: 0 8px 7px -5px $ab-md-grey;
+        margin: 0;
 
         .category-image {
             @include flex-center;
             @include flex-column;
 
             img {
-                width: 60%;
+                width: 70%;
 
                 @include media-breakpoint-between(xs,sm) {
                     width: 100%;
@@ -42,7 +43,7 @@ section {
         }
     }
 
-    &:nth-child(odd) {
+    &:nth-child(even) {
         .category-image {
             order: 1 !important;
         }
@@ -52,7 +53,7 @@ section {
         }
     }
 
-    &:nth-child(even) {
+    &:nth-child(odd) {
         .category-image {
             order: 2 !important;
         }

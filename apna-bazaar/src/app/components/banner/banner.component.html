@@ -1,5 +1,26 @@
-<section>
-    <div class="d-flex">
+<section id="banner-section">
+    <ng-container *ngIf="banners.length">
+
+        <img [src]="banners[currentIndex].bannerImageUrl | imgSrc" 
+            [alt]="banners[currentIndex].bannerImageAlt"
+            draggable="false">
         
-    </div>
+        <ul class="banner-dots">
+            <li *ngFor="let banner of banners; let idx = index">
+                <button 
+                    [ngClass]="{'active': idx == currentIndex}"
+                    [attr.aria-label]="'Go to banner number ' + (idx + 1)" 
+                    (click)="dotClicked(idx)"></button>
+            </li>
+        </ul>
+
+        <button id="banner-prev" 
+            aria-label="Go to previous banner"
+            (click)="prevClicked()">PREV</button>
+
+        <button id="banner-next" 
+            aria-label="Go to next banner"
+            (click)="nextClicked()">NEXT</button>
+        
+    </ng-container>
 </section>

@@ -16,6 +16,7 @@ import { ImgSrcPipe } from './pipes/img-src.pipe';
 import { BannerComponent } from './components/banner/banner.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CountUpdateButtonComponent } from './components/count-update-button/count-update-button.component';
+import { SwipeModule } from 'ng-swipe';
 /* import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
  */
 
@@ -39,6 +40,7 @@ import { CountUpdateButtonComponent } from './components/count-update-button/cou
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    //SwipeModule
     //NgbModule.forRoot()
   ],
   providers: [],

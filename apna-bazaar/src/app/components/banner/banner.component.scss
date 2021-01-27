@@ -1,0 +1,62 @@
+@import '../../../styles/constants.scss';
+@import '../../../styles/layout.scss';
+
+section {
+    position: relative;
+    padding: 25px 0;
+    box-shadow: 0 8px 7px -5px $ab-md-grey;
+
+    img {
+        width: 70%;
+        display: block;
+        margin: 0 auto;
+
+        @include media-breakpoint-down(md) {
+            width: 90%;
+        }
+    }
+
+    ul.banner-dots {
+        @include flex-center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: absolute;
+        width: 100%;
+        bottom: 8%;
+
+        button {
+            padding: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50px;
+            background-color: $ab-lt-grey-2;
+            margin: 0 8px;
+        }
+    }
+
+    #banner-prev, #banner-next {
+        position: absolute;
+        background-color: $ab-dk-grey;
+        opacity: 0.3;
+        top: 50%;
+        transform: translateY(-50%);
+        
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    #banner-prev {
+        left: 0;
+    }
+
+    #banner-next {
+        right: 0;
+    }
+    
+}
+
+.active {
+    background-color: $ab-md-grey !important;
+}
