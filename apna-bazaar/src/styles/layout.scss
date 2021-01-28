@@ -67,7 +67,7 @@ Inbuilt breakpoint mixins of Bootstrap
     
     label {
         margin: 0;
-        font-size: $font-11;
+        font-size: $font-12;
         order: 1;
         color: $ab-dk-grey;
         transition: color 0.1s;
@@ -76,7 +76,7 @@ Inbuilt breakpoint mixins of Bootstrap
     .form-control-error {
         order: 3;
         color: $ab-pink;
-        font-size: $font-11;
+        font-size: $font-12;
     }
 
     input:focus + label {

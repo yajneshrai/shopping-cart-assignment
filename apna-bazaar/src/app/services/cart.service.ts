@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Cart, initialCart } from '../models/cart.model';
 import { Product } from '../models/product.model';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class CartService {
   isCartOpened: boolean = false;
   cartOpened: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.isCartOpened);
 
-  constructor() {
+  constructor(private dataService: DataService) {
     this.notifyCartUpdate();
   }
 
@@ -32,6 +33,11 @@ export class CartService {
   }
 
   addToCart(product: Product) {
+    this.dataService.addToCart({ productId: product.id })
+    .subscribe(data => {
+      console.log(data);
+    })
+
     // If the product already exists
     // 1. Increase the count
     // 2. Update total cost

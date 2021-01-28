@@ -43,6 +43,10 @@ export class CartComponent implements OnInit {
       element.setAttribute('tabindex', this.cartOpened ? '-1' : '0');
     });
 
+    // When cart opened, hide scroll from body
+    const body = document.getElementsByTagName('body')[0];
+    body.style.setProperty('overflow', this.cartOpened ? 'hidden' : 'auto');
+
     // On cart open: Add focus insude cart-container tabbale elements
     // On cart close: Remove focus insude cart-container tabbale elements
     const cartElements = document.querySelectorAll('#cart-container a, #cart-container button, #cart-container [tabindex]');

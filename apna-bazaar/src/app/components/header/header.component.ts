@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
     this.cartService.cartSubscription().subscribe(
       data => {
         this.cart = data;
-        console.log(this.cart);
       } 
     )
   }

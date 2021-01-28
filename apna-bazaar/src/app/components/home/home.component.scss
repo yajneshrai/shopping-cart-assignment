@@ -13,7 +13,8 @@ section {
 
             img {
                 width: 70%;
-
+                height: 100%;
+                
                 @include media-breakpoint-between(xs,sm) {
                     width: 100%;
                 }
@@ -29,12 +30,12 @@ section {
             @include flex-column;
 
             .category-name {
-                font-size: $font-14;
+                font-size: $font-15;
                 font-weight: $font-bold;
             }
 
             .category-desc {
-                font-size: $font-12;
+                font-size: $font-13;
             }
 
             @include media-breakpoint-between(xs,sm) {

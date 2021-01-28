@@ -30,7 +30,10 @@
             <div class="form-floating mb-4">
                 <input type="password" id="password2" formControlName="password2" class="form-control" required aria-required="true">
                 <label for="password2" aria-labelledby="password2">Confirm Password</label>
-                <span aria-live="assertive" class="form-control-error" *ngIf="signupForm.controls.password2.dirty && signupForm.value.password!=signupForm.value.password2">Passwords does not match</span>
+                <span aria-live="assertive" class="form-control-error"
+                    *ngIf="signupForm.controls.password2.dirty && 
+                        signupForm.value.password!=signupForm.value.password2">
+                        Password does not match</span>
             </div>
 
             <br>

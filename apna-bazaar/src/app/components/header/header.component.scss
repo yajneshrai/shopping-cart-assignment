@@ -1,17 +1,5 @@
-/* @import "~/node_modules/bootstrap/scss/bootstrap.scss";
- */
- 
 @import '../../../styles/layout.scss';
 @import '../../../styles/constants.scss';
-
-a {
-    text-decoration: none;
-    font-weight: $font-semi-bold;
-
-    &:hover {
-        text-decoration: none;
-    }
-}
 
 header {
     box-shadow: 0px 3px 5px 0px $ab-lt-grey;
@@ -75,7 +63,7 @@ header {
                     
                     a {
                         color: $ab-black;
-                        font-size: $font-11;
+                        font-size: $font-12;
                     }
                 }
 
@@ -105,7 +93,7 @@ header {
                 #cart-count {
                     margin-left: 10%;
                     white-space: nowrap;
-                    font-size: $font-12;
+                    font-size: $font-13;
                 }
 
                 @include media-breakpoint-down(md) {
