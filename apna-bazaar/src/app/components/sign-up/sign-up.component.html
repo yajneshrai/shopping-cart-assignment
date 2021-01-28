@@ -25,15 +25,19 @@
             <div class="form-floating mb-4">
                 <input type="password" id="password" formControlName="password" class="form-control" required aria-required="true">
                 <label for="password" aria-labelledby="password">Password</label>
+                <span aria-live="assertive" class="form-control-error"
+                    *ngIf="signupForm.controls.password.dirty && signupForm.controls.password.invalid">
+                    Password must be between 6-18 characters, must contain 1 letter and 1 number and whitespaces not allowed
+                </span>
             </div>
             
             <div class="form-floating mb-4">
                 <input type="password" id="password2" formControlName="password2" class="form-control" required aria-required="true">
                 <label for="password2" aria-labelledby="password2">Confirm Password</label>
                 <span aria-live="assertive" class="form-control-error"
-                    *ngIf="signupForm.controls.password2.dirty && 
-                        signupForm.value.password!=signupForm.value.password2">
-                        Password does not match</span>
+                    *ngIf="signupForm.controls.password2.dirty && signupForm.errors?.passwordMismatch">
+                    Password does not match
+                </span>
             </div>
 
             <br>

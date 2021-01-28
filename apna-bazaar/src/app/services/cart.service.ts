@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Cart, initialCart } from '../models/cart.model';
+import { Cart, CartAddRequest, initialCart } from '../models/cart.model';
 import { Product } from '../models/product.model';
 import { DataService } from './data.service';
 
@@ -33,7 +33,9 @@ export class CartService {
   }
 
   addToCart(product: Product) {
-    this.dataService.addToCart({ productId: product.id })
+    const cartAddRequest: CartAddRequest = { productId: product.id };
+    
+    this.dataService.addToCart(cartAddRequest)
     .subscribe(data => {
       console.log(data);
     })

@@ -12,6 +12,10 @@ export interface Cart {
     totalCost: number
 }
 
+export interface CartAddRequest {
+    productId: string;
+}
+
 export const initialCart: Cart = {
     productIds: [],
     productMap: {},
