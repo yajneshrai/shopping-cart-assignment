@@ -12,7 +12,7 @@ export class SignInComponent implements OnInit {
 
   @ViewChild('loginForm') loginForm: NgForm | any;
 
-  pattern = '^(?=.*[0-9])(?=.*[a-zA-Z])(?!.*[\s+]).{6,18}$';
+  pattern = '^(?=.*[0-9])(?=.*[a-zA-Z])(?!.*[\s]).{6,18}$';
 
   constructor(
     private dataService: DataService,
@@ -25,11 +25,11 @@ export class SignInComponent implements OnInit {
   login() {
     const signInValue = { ...this.loginForm.value };
     console.log(this.loginForm)
-    /* this.dataService.signIn(signInValue)
+    this.dataService.signIn(signInValue)
     .subscribe(
       data => {
         console.log(data);
         this.router.navigate(['/home']);
-      }); */
+      });
   }
 }
