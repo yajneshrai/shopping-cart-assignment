@@ -8,12 +8,12 @@
     <section id="form-container">
         <form #loginForm="ngForm" (ngSubmit)="login()">
             <div class="form-floating mb-4">
-                <input type="email" id="userEmail" class="form-control" name="userEmail" ngModel required>
+                <input type="email" id="userEmail" class="form-control" name="userEmail" ngModel required aria-required="true">
                 <label for="userEmail" aria-labelledby="userEmail">Email address</label>
             </div>
 
             <div class="form-floating mb-4">
-                <input type="password" id="userPasswd" class="form-control" name="userPasswd" ngModel required>
+                <input type="password" id="userPasswd" class="form-control" name="userPasswd" ngModel required aria-required="true">
                 <label for="userPasswd" aria-labelledby="userPasswd">Password</label>
             </div>
             

@@ -11,6 +11,10 @@ aside {
             font-weight: $font-semi-bold;
             color: $ab-dk-grey;
             cursor: pointer;
+
+            a {
+                color: unset !important;
+            }
         }
 
         @include media-breakpoint-down(sm) {

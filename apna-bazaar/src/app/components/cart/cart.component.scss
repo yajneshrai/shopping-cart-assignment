@@ -12,11 +12,12 @@
     opacity: 0.5;
 
     @include media-breakpoint-down(md) {
-        display: none;
+        //display: none;
+        opacity: 0;
     }
 }
 
-.cart-container {
+#cart-container {
     width: 30%;
     height: 100vh;
     position: fixed;
@@ -178,5 +179,5 @@ h5 {
 }
 
 .cart-bg {
-    background-color: $ab-lt-grey;
+    background-color: $ab-lt-grey !important;
 }

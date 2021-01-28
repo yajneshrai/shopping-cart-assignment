@@ -1,12 +1,12 @@
-<section class="productlist__container">
+<section class="productlist-container">
 
     <app-category-sidenav 
-        class="productlist__sidenav"
+        class="cat-sidenav"
         *ngIf="categories.length"
         [categories]="categories">
     </app-category-sidenav>
 
-    <div class="productlist__products">
+    <div class="products">
         <div class="row">
             <ng-container *ngIf="displayedProducts.length; else noDataBlock">
                 <app-product 

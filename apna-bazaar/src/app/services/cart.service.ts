@@ -28,9 +28,6 @@ export class CartService {
 
   cartContainerOpened(isOpened: boolean) {
     this.isCartOpened = isOpened;
-    const body = document.getElementsByTagName('body')[0];
-    body.style.overflow = this.isCartOpened ? 'hidden' : 'auto';
-    //body.tabIndex = -1;
     this.cartOpened.next(this.isCartOpened);
   }
 

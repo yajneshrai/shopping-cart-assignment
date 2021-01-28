@@ -5,14 +5,14 @@
     @include flex-1;
 }
 
-.productlist__container {
+.productlist-container {
     @include flex;
 
     @include media-breakpoint-down(sm) {
         @include flex-column;
     }
 
-    .productlist__sidenav {
+    .cat-sidenav {
         flex: 0 1 20%;
         background-color: $ab-lt-grey;
 
@@ -25,7 +25,7 @@
         }
     }
 
-    .productlist__products {
+    .products {
         flex: 1;
 
         .row {
