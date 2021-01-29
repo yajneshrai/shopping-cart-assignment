@@ -4,38 +4,56 @@
         <br>
         <p>We do not share your personal details with anyone</p>
     </section>
-
+    
     <section id="form-container">
-        <form aria-label="Signup form" [formGroup]="signupForm" (ngSubmit)="signup()">
+        <form role="form" aria-label="Signup form" [formGroup]="signupForm" (ngSubmit)="signup()">
+
             <div class="form-floating mb-4">
-                <input type="text" id="firstName" formControlName="firstName" class="form-control" required aria-required="true">
+                <input type="text" id="firstName" formControlName="firstName" 
+                    class="form-control" required aria-required="true" aria-describedby="fname-error">
                 <label for="firstName" aria-labelledby="firstName">First Name</label>
+                <span id="fname-error" *ngIf="signupForm.get('firstName').touched && signupForm.get('firstName').invalid" 
+                    class="form-control-error" aria-live="assertive">
+                    First name is required 
+                </span>
             </div>
 
             <div class="form-floating mb-4">
-                <input type="text" id="lastName" formControlName="lastName" class="form-control" required aria-required="true">
+                <input type="text" id="lastName" formControlName="lastName" 
+                    class="form-control" required aria-required="true" aria-describedby="lname-error">
                 <label for="lastName" aria-labelledby="lastName">Last Name</label>
+                <span id="lname-error" *ngIf="signupForm.get('lastName').touched && signupForm.get('lastName').invalid" 
+                    class="form-control-error" aria-live="assertive">
+                    Last name is required 
+                </span>
             </div>
 
             <div class="form-floating mb-4">
-                <input type="email" id="email" formControlName="email" class="form-control" required aria-required="true">
+                <input type="email" id="email" formControlName="email" 
+                    class="form-control" required aria-required="true" aria-describedby="email-error">
                 <label for="email" aria-labelledby="email">Email</label>
+                <span id="email-error" *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid" 
+                    class="form-control-error" aria-live="assertive">
+                    Email is required in correct format
+                </span>
             </div>
 
             <div class="form-floating mb-4">
-                <input type="password" id="password" formControlName="password" class="form-control" required aria-required="true">
+                <input type="password" id="password" formControlName="password"
+                    class="form-control" required aria-required="true" aria-describedby="pwd-error">
                 <label for="password" aria-labelledby="password">Password</label>
-                <span aria-live="assertive" class="form-control-error"
-                    *ngIf="signupForm.controls.password.dirty && signupForm.controls.password.invalid">
+                <span id="pwd-error" *ngIf="signupForm.get('password').touched && signupForm.get('password').invalid"
+                    class="form-control-error" aria-live="assertive">
                     Password must be between 6-18 characters, must contain 1 letter and 1 number and whitespaces not allowed
                 </span>
             </div>
             
             <div class="form-floating mb-4">
-                <input type="password" id="password2" formControlName="password2" class="form-control" required aria-required="true">
+                <input type="password" id="password2" formControlName="password2"
+                    class="form-control" required aria-required="true"  aria-describedby="pwd2-error">
                 <label for="password2" aria-labelledby="password2">Confirm Password</label>
-                <span aria-live="assertive" class="form-control-error"
-                    *ngIf="signupForm.controls.password2.dirty && signupForm.errors?.passwordMismatch">
+                <span id="pwd2-error" *ngIf="signupForm.get('password2').touched && signupForm.errors?.passwordMismatch"
+                    class="form-control-error" aria-live="assertive">
                     Password does not match
                 </span>
             </div>

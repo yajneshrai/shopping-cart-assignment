@@ -6,19 +6,24 @@
     </section>
 
     <section id="form-container">
-        <form #loginForm="ngForm" (ngSubmit)="login()">
+        <form role="form" #loginForm="ngForm" (ngSubmit)="login()">
             <div class="form-floating mb-4">
-                <input type="email" id="email" class="form-control" name="email" ngModel required aria-required="true">
+                <input type="email" id="email" class="form-control" name="email" #email="ngModel" ngModel
+                required aria-required="true" aria-describedby="email-error">
                 <label for="email" aria-labelledby="email">Email address</label>
+                <span id="email-error" aria-live="assertive" 
+                    *ngIf="email.touched && email.invalid" class="form-control-error">
+                    Email is not in expected format
+                </span>
             </div>
 
             <div class="form-floating mb-4">
-                <input type="password" id="password" class="form-control" name="password" ngModel
-                    [pattern]="pattern" required aria-required="true">
+                <input type="password" id="password" class="form-control" name="password" #password="ngModel" ngModel
+                    [pattern]="pattern" required aria-required="true" aria-describedby="pwd-error">
                 <label for="password" aria-labelledby="password">Password</label>
-                <span aria-live="assertive" class="form-control-error"
-                    *ngIf="loginForm.controls?.password?.dirty && loginForm.controls.password.invalid">
-                    Password must be between 6-18 characters, must contain 1 letter and 1 number and whitespaces not allowed
+                <span id="pwd-error" aria-live="assertive" class="form-control-error"
+                    *ngIf="password.touched && password.invalid">
+                    Password must be between 6-18 characters, must contain 1 letter and 1 number and white spaces not allowed
                 </span>
             </div>
 

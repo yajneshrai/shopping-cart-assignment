@@ -12,7 +12,7 @@ section {
         margin: 0 auto;
 
         @include media-breakpoint-down(md) {
-            width: 90%;
+            width: 100%;
         }
     }
 

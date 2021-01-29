@@ -5,6 +5,10 @@
     @include flex;
     margin: 3% 6%;
 
+    @include media-breakpoint-down(sm) {
+        flex-direction: column;
+    }
+    
     #text-banner {
         @include flex-column;
         flex-basis: 45%;

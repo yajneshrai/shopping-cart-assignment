@@ -38,7 +38,7 @@ export class CartComponent implements OnInit {
   onCartContainerUpdate() {
     // On cart open: Remove focus from all tabbale body elements
     // On cart close: Add focus back to all tabbale body elements
-    const bodyElements = document.querySelectorAll('a, button, [tabindex]');
+    const bodyElements = document.querySelectorAll('a, button, input, [tabindex]');
     bodyElements.forEach(element => {
       element.setAttribute('tabindex', this.cartOpened ? '-1' : '0');
     });

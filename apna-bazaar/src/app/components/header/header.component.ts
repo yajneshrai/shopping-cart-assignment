@@ -10,6 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class HeaderComponent implements OnInit {
 
   cart: Cart = initialCart;
+  isSmMenuOpened: boolean =false;
 
   constructor(private cartService: CartService) { 
     this.cartService.cartSubscription().subscribe(
@@ -19,8 +20,25 @@ export class HeaderComponent implements OnInit {
     )
   }
 
-
   ngOnInit(): void {
+  }
+
+  mobileNavClicked() {
+    // Check if menu was opened or closed
+    const mobileNav = document.getElementById('mobile-nav') as HTMLElement;
+    this.isSmMenuOpened = mobileNav.className == 'd-none';
+
+    mobileNav.className = this.isSmMenuOpened ? 'd-block' : 'd-none';
+
+    const mobileNavLinks = document.querySelectorAll('#mobile-nav a');
+    mobileNavLinks.forEach(el => {
+      this.isSmMenuOpened ?
+        el.addEventListener('click', () => { 
+          mobileNav.className = 'd-none'; 
+          this.isSmMenuOpened = false;
+        }) :
+        el.removeEventListener('click', () => {});
+    });
   }
 
   showCart() {

@@ -10,7 +10,7 @@
         </ul>
     </nav>
 
-    <select tabindex="0" aria-label="Product category navigation list" (change)="categoryChanged($event)">
+    <select tabindex="0" aria-label="Product category navigation select menu" (change)="categoryChanged($event)">
         <ng-container *ngFor="let category of categories">
             <option *ngIf="category.enabled" 
                 [value]="category.id">

@@ -42,14 +42,56 @@ header {
                         font-weight: $font-bold;
                     }
                 }
-
-                @include media-breakpoint-down(sm) {
-                    display: none;
-                }
             }
 
+            @include media-breakpoint-down(sm) {
+                display: none;
+            }
         }
-    
+        
+        .mobile-nav-container {
+            @include flex-1;
+            position: relative;
+
+            @include media-breakpoint-down(sm) {
+                display: block !important;
+            }
+
+            button {
+                background-color: $ab-lt-grey;
+                color: $ab-black;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                width: 100%;
+                background-color: $ab-lt-grey;
+                border: 1px solid $ab-lt-grey-2;
+
+                .line-break {
+                    margin: 5px 0;
+                    border-bottom: 1px solid $ab-lt-grey-2;
+                }
+
+                ul {
+                    @include flex-column;
+                    margin: 10px 30px !important;
+
+                    li {
+                        padding: 5px 0;
+                    }
+
+                    a {
+                        color: inherit !important;
+                    }
+                }
+            }
+        }
+ 
         .actions {
             flex: 0 1 20%;
             position: relative;
